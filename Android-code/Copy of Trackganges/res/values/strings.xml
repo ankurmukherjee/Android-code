@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Trackganges</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="enter_id">Enter your Password</string>
+    <string name="radio_option1">Retailers</string>
+    <string name="radio_option2">Devices</string>
+    <string name="dialog_title">Please Choose your View</string>
+    <string name="title_activity_retailers">Retailers</string>
+    <string name="title_activity_create_retailers">Create_Retailers</string>
+    <string name="Name">Store Name</string>
+    <string name="Phone">Phone number</string>
+    <string name="Search">Search...</string>
+    <string name = "Retailer">Retailer...</string>
+    <string name="ODM">ODM name</string>
+    <string name ="Street">Street</string>
+    <string name="Area">Area</string>
+    <string name="City">City</string>
+    <string name="Enterid">Enter Device ID to be registered</string>
+    <string name="Address">Address</string>
+    <string name="FMCG">FMCG</string>
+    <string name ="Register">Register Device</string>
+    <string name="Dev_id">Device ID...</string>
+    <string name="title_activity_temp">Temp</string>
+    <string name="Cancel">Cancel</string>
+    <string name="title_activity_update__info">Update_Info</string>
+    <string name="title_activity_devices_list">Devices_list</string>
+    <string name="title_activity_device_details">Device_details</string>
+
+</resources>

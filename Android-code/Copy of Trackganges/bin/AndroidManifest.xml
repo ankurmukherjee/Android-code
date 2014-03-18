@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sap.trackganges"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:permission="android.permission.ACCESS_COARSE_LOCATION"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.sap.trackganges.MainActivity"
+            android:label="@string/app_name"
+            android:permission="android.permission.ACCESS_COARSE_LOCATION" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sap.trackganges.Retailers"
+            android:label="@string/title_activity_retailers"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.sap.trackganges.Addretailer"
+            android:label="@string/title_activity_create_retailers" >
+        </activity>
+        <activity
+            android:name="com.sap.trackganges.Temp"
+            android:label="@string/title_activity_temp" >
+        </activity>
+        <activity
+            android:name="com.sap.trackganges.Update_Info"
+            android:label="@string/title_activity_update__info" >
+        </activity>
+        <activity
+            android:name="com.sap.trackganges.Devices_list"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:label="@string/title_activity_devices_list" >
+        </activity>
+        <activity
+            android:name="com.sap.trackganges.Device_history"
+            android:label="@string/title_activity_device_details" >
+        </activity>
+    </application>
+
+</manifest>
