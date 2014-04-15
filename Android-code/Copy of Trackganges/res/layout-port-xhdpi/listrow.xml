@@ -19,14 +19,14 @@
             android:text="retailer_name"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
+        <!-- <TextView
             android:id="@+id/devid_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
             android:text="devce_id"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+ -->
     </LinearLayout>
 
 </RelativeLayout>

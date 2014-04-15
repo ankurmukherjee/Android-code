@@ -3,15 +3,18 @@ package com.sap.trackganges;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -34,6 +37,7 @@ public class Retailers extends Activity implements LoaderCallbacks<Cursor>
 	
 	TextWatcher filterTextWatcher;
 
+//	
 	// @Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -44,12 +48,14 @@ public class Retailers extends Activity implements LoaderCallbacks<Cursor>
 		
 		
 		// Initialize the list view
-				ListView lv = (ListView) findViewById(R.id.retail_list);
+				final ListView lv = (ListView) findViewById(R.id.retail_list);
 				
 				lv.setTextFilterEnabled(true);
 				getLoaderManager().initLoader(0, null, this);
-				String from[] = { Database_Helper.Col1, Database_Helper.Col12 };
-				int[] to = { R.id.name_field, R.id.devid_field };
+				String from[] = { Database_Helper.Col1};
+//				String from[] = { Database_Helper.Col1, Database_Helper.Col12 };
+//				int[] to = { R.id.name_field, R.id.devid_field };
+				int[] to = { R.id.name_field};
 				sca = new SimpleCursorAdapter(this, R.layout.listrow, null, from, to, 0);		
 				lv.setAdapter(sca);
 
@@ -100,19 +106,25 @@ public class Retailers extends Activity implements LoaderCallbacks<Cursor>
 		{
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) 
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
 			{
-				TextView tv = (TextView) findViewById(R.id.name_field);
-				String tv_extracted = tv.getText().toString();
-				
 				Intent update_or_view = new Intent(getApplicationContext(), Update_Info.class);
-				update_or_view.putExtra("pass1", tv_extracted);
+				update_or_view.putExtra("pass1", id);
 				startActivity(update_or_view);
+				
+//				TextView tv = (TextView) findViewById(R.id.name_field);
+//				String tv_extracted = tv.getText().toString();
+//
+////				Cursor cursor = sca.getCursor();
+////				cursor.moveToPosition(position);
+////				String item = ((TextView) view).getText().toString();        
+				
+				
 				
 			}
 		});		
 		
-		
+				
 		edit.setOnClickListener(new View.OnClickListener() 
 		{
 			@Override
@@ -128,8 +140,8 @@ public class Retailers extends Activity implements LoaderCallbacks<Cursor>
 	{
 		SQLiteQueryBuilder querybuilder = new SQLiteQueryBuilder();
 		querybuilder.setTables(Database_Helper.Register_Table);
-		String from[] = { Database_Helper.KEY1,Database_Helper.Col1, Database_Helper.Col12 };
-		
+//		String from[] = { Database_Helper.KEY1,Database_Helper.Col1, Database_Helper.Col12 };
+		String from[] = { Database_Helper.KEY1,Database_Helper.Col1};
 		if(constraint == null || constraint.length() == 0)
 		{
 			return getContentResolver().query(RETAIL, from, null , null, null);
@@ -151,7 +163,8 @@ public class Retailers extends Activity implements LoaderCallbacks<Cursor>
 
 	public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) 
 	{
-		String columns[] = { Database_Helper.KEY1, Database_Helper.Col1, Database_Helper.Col12 };
+		String columns[] = { Database_Helper.KEY1, Database_Helper.Col1};
+//		String columns[] = { Database_Helper.KEY1, Database_Helper.Col1, Database_Helper.Col12 };
 		CursorLoader loader = new CursorLoader(getBaseContext(), RETAIL, columns, null, null, null);
 		return loader;
 	}

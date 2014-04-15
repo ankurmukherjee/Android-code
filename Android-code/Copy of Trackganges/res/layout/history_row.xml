@@ -15,7 +15,6 @@
         android:hint="Location"
         android:layout_height="wrap_content"
         android:ems="10" >
-        
     </EditText>
    
     <EditText
@@ -24,6 +23,7 @@
         android:layout_weight="0.3"
         android:hint="Date"
         android:layout_height="wrap_content"
+        
         android:ems="10">
         
     </EditText>

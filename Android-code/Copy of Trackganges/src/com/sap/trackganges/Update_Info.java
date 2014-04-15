@@ -12,7 +12,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.InputType;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,8 +19,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class Update_Info extends Activity 
 {
@@ -29,7 +26,8 @@ public class Update_Info extends Activity
 	Uri HISTORY = Uri.parse("content://com.example.dataproviderwithreference.Simple_Provider/" + Database_Helper.History_Table);
 	public static SQLiteDatabase db;
 	public Database_Helper dbobj;
-	String data1 , current;
+	String current;
+	long data1;
 	LinearLayout l;
 	Calendar c = Calendar.getInstance();
 	SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -51,7 +49,9 @@ public class Update_Info extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update__info);
 		Intent i = getIntent();
-		data1 = i.getStringExtra("pass1");
+
+		data1 = i.getExtras().getLong("pass1");
+		
 		Cursor result = queryfromdb();
 
 		if(result.moveToFirst())
@@ -157,8 +157,14 @@ public class Update_Info extends Activity
 			public void onClick(View arg0) 
 			{
 				et4.setEnabled(true);
+				et8.setEnabled(true);
+				et9.setEnabled(true);
 			    et4.setInputType(InputType.TYPE_CLASS_TEXT);
+			    et8.setInputType(InputType.TYPE_CLASS_TEXT);
+			    et9.setInputType(InputType.TYPE_CLASS_TEXT);
 			    et4.setFocusable(true);
+			    et8.setFocusable(true);
+			    et9.setFocusable(true);
 				
 			}
 		});
@@ -299,7 +305,7 @@ public class Update_Info extends Activity
 		String[] projection = {Database_Helper.Col1 , Database_Helper.Col2, Database_Helper.Col3, Database_Helper.Col4,Database_Helper.Col5,
 							   Database_Helper.Col6,Database_Helper.Col7,Database_Helper.Col8,Database_Helper.Col9,Database_Helper.Col10,Database_Helper.Col11,Database_Helper.Col12};
 
-		selection = "RET_NAME = " + "'" + data1 + "'" ;
+		selection = "_id = " + "'" + data1 + "'" ;
 		Cursor c = getContentResolver().query(RETAIL, projection, selection , null, null);
 		return c;
 		

@@ -18,7 +18,7 @@ public class Dialoghelper extends DialogFragment implements View.OnClickListener
 	Button yes , no;
 	EditText registered_id;
 	String buffer,key;
-	
+		
 	
 	@Override
 	public void onAttach(Activity activity) 
@@ -37,6 +37,7 @@ public class Dialoghelper extends DialogFragment implements View.OnClickListener
 		yes.setOnClickListener(this);
 		no.setOnClickListener(this);
 		registered_id = (EditText) view.findViewById(R.id.devicetoregister);
+		getDialog().setTitle("Register Device");
 		return view ;
 	}
 	

@@ -25,7 +25,8 @@ public class MainActivity extends Activity implements Communicator
 		
 		setContentView(R.layout.activity_main);
 		
-		Button go = (Button) findViewById(R.id.Go_button);
+
+Button go = (Button) findViewById(R.id.Go_button);
 		pass_text = (EditText) findViewById(R.id.Sap_identity);
 
 		go.setOnClickListener(new View.OnClickListener() 
@@ -33,6 +34,7 @@ public class MainActivity extends Activity implements Communicator
 			@Override
 			public void onClick(View view)
 			{
+
 				if (pass_text.getText().toString().equals(password)) 
 				{
 					show_dialog();
